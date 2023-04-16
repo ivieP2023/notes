@@ -1,0 +1,2 @@
+# notes
+added note training
