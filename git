@@ -1,0 +1,455 @@
+what's the difference? The first answer is version control.
+Git: 
+-	Default still “master”
+-	Transition to something else – perhaps 1 day
+-	Options for other default branch names
+GitHIb: 
+-	default now “main” (new repos only)
+-	can be reset back to “master”
+-	more immediate transition
+
+
+Git 
+Working on local system 
+Any developer who has worked on a project with multiple team members knows the importance of version control. When more than one person is working on a codebase, it's essential to have a way to track changes and ensure that everyone is working off of the same version of the code.  
+A version control system (VCS), allows you to track changes to your code over time. It's essential for developers who often need to work on the same codebase concurrently. It gives them a way to undo mistakes, track changes, and collaborate with others on code. However, anyone who regularly works with files that change can benefit from using version control.
+
+Git itself is used on the local computer of a user to manage and keep track of changes in a project over time.To collaborate (and also to simply store their code on a server), software teams then need to pick a code hosting platform. 
+What is Git?
+Git is the most popular VCS in use today, created by Linus Torvalds in 2005. It is free, open-source, and designed to handle everything from small to very large projects with speed and efficiency. Its flexible architecture means it can be effectively integrated into your workflow. For example, you can use Git to manage all your project's files or just a few files that are important to you.
+
+which gives each developer a full history of their code changes locally.
+Here are some common git commands:
+Create the .bash_profile File
+Bash Configuration
+Open or create the ~/.bash_profile file and add the following line:
+Open Git Bash:
+touch .bash_profile
+List the .bash_profile File
+ls -la // List the bash (bc you cannot find the file because it is hidden)
+Open the .bash_profile File
+nano .bash_profile   // open the .bash_profile
+ctrl S : Save after edit
+ctrl x : Exit 
+git-log //Show commit logs
+git help log // need helps
+git log –oneline  // provide a simplified commit entry.
+git log –oneline --graph  // provide an asterisk based graph denoting our branch hierarchy
+git log –oneline –graph –decorate --all  //provide the history for all the branches that are available in this repository
+Git stores history as a graph of snapshots of the entire repository
+
+ 
+
+
+
+
+
+git version //
+git init: Initialize a new git repository within the project’s folder. This is the first command you should run when starting a new project.
+git clone:  Clone an existing git repository. This command allows you to create a local copy of a remote repository.
+git add: Add files to a repository. This command allows you to add new files or changes to already existing files to a git repository.
+git commit: Make changes to a repository. This command saves your changes to the git history.
+git push: Push changes to a git remote repository. This command pushes your local commits to a remote git repository.
+git pull: Pull changes from a git remote repository. This command pulls down any remote changes and incorporates them into your local git repository.
+git status: Check the status of your git repository. This will let you know which files have been modified and which files are being tracked by git.
+git log: View the commit history for your git repository. This is useful for finding out when certain changes were made and who made them.
+git reset:  Reset your git repository to a specific commit. This command allows you to undo changes to a file or reset your git history.
+ls -al: list all the files including hidden ones.
+
+GitHub is the most popular among many options; GitLab, Bitbucket, and Azure DevOps are other popular option
+
+Configuration:
+User id
+User email
+
+git config --gobal iviep2023 " Ivie Pham"
+git config --gobal ivieshop20 ivieshop20@gmail.com”
+
+
+Create new project:
+
+mkdir projects
+
+ls -al
+
+ 
+
+Cd projects
+
+Create a new repo within the project folder!
+
+git init demo
+
+cd demo
+ 
+
+“master” which is default branch name, get it whenever creating new git repository. 
+ls –all: see all the files and folders that are a part of this repository.
+
+Git States:
+
+Create a file:
+
+mate README.md  /// md is for markdown 
+git add README.md 
+ls 
+git status
+
+ 
+
+Repository and Git Folder:
+Remove the folder under repository:
+rm -rf .git
+ 
+
+ 
+
+
+ 
+
+
+To place the folder under version control with Git,  create .git
+git init . // “.” Means specific current folder
+ 
+ 
+
+ 
+
+1 file that is not being tracked 
+
+git show: shows the last commit and a diff containing all the changes.
+ 
+
+git ls-files: only track the existing files, not a new file.
+create a new file under repo:
+touch new.file
+ 
+
+git commit -a: tell Git to first add modified files to the Git staging area.
+git branch:  // check all branch.
+git branch new-branch:  // create a new branch
+git ls-flies  // all files what Git tracking, only tracked files
+git status // all files including untracked files
+touch new.file  // create a new file 
+rm new.file  // remove files
+1.	git commit -m “Messages”  // tell Gut to first add new files to the gIt staging area
+2.	git log // show actions
+3.	git add . // 
+git reset // unstage changes 
+git checkout – modified  // revert back the last known good stage of that file which is back to Git repository 
+
+
+Create a Git alias:
+$ git config --global alias.hist "log --online --graph --decorate --all"
+git config --global –list // check entry made it in by listing all entries
+ 
+
+git hist  
+ 
+
+git hist – name-file
+git hist – LICENSE.md
+ 
+
+Rename and Delete Files
+pwd // check directory 
+ 
+Create a new file name example.txt
+touch example.txt
+open file:
+nano example.txt
+crtl S, crtl x
+git status
+git add example.txt  // add new file
+git commit -m “adding example.txt”  
+git status
+change name of files
+git mv example.txt demo.txt  // change new name, “mv” means move
+Note: whatever you do, git commit to finish the tasks
+git commit -m “remaining example”
+remove files;
+$ git rm demo.txt
+
+ 
+To complete the deletion, do the commit
+$ git commit -m "deleting modifiled"
+
+If not
+git add .
+git commit -m “deleting”
+
+manage files Outside of Git
+touch newfile
+git add -u  //u is update
+git add -A //cover all types of modifications possible on the current working directory, make those updates according in the Git index.
+ 
+git commit -m “rename and add”  //always do the last part.
+
+Remove file:
+rm newfile.txt
+git add -u
+git status
+ 
+
+Git commit -m “remove file”
+ 
+
+Unwanted files:
+1.	touch newfile.log
+2.	touch .gitignore
+3.	nano .gitignore
+open file, typing *.gitignore, crtl s, crtl s
+4.	git status  // only see .gitignore , other files with .log are hidden
+Advanced Git
+-	compare Differences
+-	branching, Merge and conflict resolution
+-	milestones
+-	work in progress
+-	time Travel
+-	
+
+Compare Differences:
+
+Install pymer4:
+conda create --name pymer4 -c ejolly -c conda-forge -c defaults pymer4
+conda activate pymer4
+
+Branch & Merge Type:
+Branch = Timeline of Commits
+Branch is the names or labels we give times in Git
+Can create or delete branches without affecting timelines
+
+Master Branch:
+Create a new branch and then rejoin the master branch
+Compare differences with the “diff” command 
+https://www.perforce.com/downloads/visual-merge-tool
+
+Modify a file:
+1.	Open file
+nano README.md
+type something, crtl s, crtl x
+2.	Git
+git status
+ 
+
+3.	Check git diff what updated
+git diff
+ 
+
+
+
+
+Branch and Merge:
+
+Merge: git tried to merge automatically when possible
+
+Special Marker:
+
+
+Branches:
+Create a new branch:
+git branch
+
+ 
+
+Create a new branch and switch to new branch named ‘updates’
+$ git checkout -b updates
+
+
+ 
+
+
+ 
+
+ 
+
+Switch to branch master:
+git checkout master
+ 
+
+
+Merge new branch to branch master
+
+
+ 
+
+ 
+
+Delete branch:
+$ git branch -d  updates
+ 
+
+git branch   //List all branches
+git branch -d namebranch   //delete branch
+git checkout -b namebrach  // create a new branch and  switch to new branch
+git branch -a  //show all branches
+git checkout master   // switch to branch master
+git merge newbranch  // merge newbrach to branch master
+
+Conflict resolution:
+
+Marking special Events with Tagging
+
+$ git tag mytag    //Create a new tag
+$ git tag –list     // list tags
+$ git tag -d mytag  // delete tags
+$ git tag -a v1.0 -m "Release 1.0"   /// create a new tag with message 
+ git show f0b1a5cbe83fe940dba36a8d1c28ef920c75d829
+
+
+
+Stashing:
+git stash  // saving the work in progress
+git stash list  // show our stashes
+
+
+Reset and reflog:
+$ git reset c5c218c –soft  // reset with commit id
+
+
+
+GitHub
+
+Publish code somewhere others can see it, 
+Popular Git Hosting
+The most popular service for Git repositories is GitHub
+Free account 
+Public repositories
+
+
+Create a new github repo
+
+Connect local Repo to Github
+Create a name repo in GitHub as same as name in Git local
+
+ 
+
+git remote -v  // show all repositories in GitHub
+
+ 
+
+
+Pushing changes to GitHub
+$ git push -u origin master –tags  // pushing changes to GitHUb
+
+
+Verify on GitHUb
+
+GitHub Default Branch:
+
+
+
+
+Reset Default:
+-	Set default branch back to master
+-	Setting -> Repositoroes -> Repository default branch
+o	Change to master and Update
+-	Change back to main
+
+
+Embrace the changes 
+
+GutHub:
+-	Leave the new default as main
+
+
+Git:
+Created new repo demo-one
+Switch master default to main 
+
+
+ 
+
+
+GitHUb:
+Create new repo name demo-one
+Copy url 
+
+Paste in Git
+ 
+
+
+git push origin main
+$ git init -b main local-demo   // b means allow you to specify main as default branch
+$ git config --global init.defaultBranch main  // update the setting to use Main as default branch 
+$ git config --global –list 
+ 
+
+
+
+
+
+Clone a new repo from GH to under Git project
+$ git clone https://github.com/ivieP2023/demo-two.git
+
+ 
+
+git add .
+git commit -am “Updated README.md”
+git push origin main
+
+SSH authentication on GH
+SSH vs HTTPS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
